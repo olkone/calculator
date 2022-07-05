@@ -1,0 +1,55 @@
+body {
+  align-items: center;
+  background-color: gray;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+}
+
+#calc-container {
+  align-items: center;
+  background-color: rgb(64, 78, 95);
+  display: flex;
+  flex-flow: column nowrap;
+  height: 550px;
+  width: 400px;
+}
+#calc-container #display-container {
+  background-color: white;
+  text-align: right;
+  width: 100%;
+}
+#calc-container #button-container {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  margin: 5px;
+}
+#calc-container #button-container button {
+  background-color: lightgray;
+  border: none;
+}
+#calc-container #button-container #clear-delete {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 100%;
+  padding: 2px 0 6px;
+}
+#calc-container #button-container #clear-delete .clear-buttons {
+  height: 60px;
+  width: 184px;
+  margin: 0 5px;
+}
+#calc-container #button-container #main-btn-container {
+  display: grid;
+  flex: 1;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */
