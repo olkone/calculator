@@ -1,46 +1,75 @@
-// Two-arguement functions
+const display = document.querySelectorAll('.display');
+const entry = document.querySelector('#entry');
+const prevEntry = document.querySelector('#prev-entry');
+const operatorEntry = document.querySelector('#op-entry');
+const answer = document.querySelector('#answer');
 
-function add(a, b) {
-    return a + b;
-}
+function operate() {
+    let a = Number(prevEntry.innerText);
+    let b = Number(entry.innerText);
+    const operator = operatorEntry.innerText;
 
-function subtract(a, b) {
-    return a - b;
-}
+    switch(operator) {
 
-function multiply(a, b) {
-    return a * b;
-}
+        case '+':
+            return a + b;
+        
+        case '-':
+            return a - b;
 
-function divide(a, b) {
-    return a / b;
-}
+        case '×':
+            return a * b;
 
-function power(a, b) {
-    return a**b;
-}
+        case '÷':
+            return a / b;
+        
+        case '^':
+            return a ** b;
 
-function root(a, b) {
-    return a**(1/b);
-}
+        case '!':
+            let total = 1;
+            for (let i = 0; i < a; i++) {
+                total = total * (a - i);
+            }
+            return total;
 
-// Single-arguement functions
-
-
-function toggleNegative(a) {
-    return a * -1;
-}
-
-function factorial(a) {
-    let total = 1;
-    for (let i = 0; i < a; i++) {
-        total = total * (a - i);
+        default:
+            alert("Something went horribly wrong.");
+            break;
     }
-    return total;
 }
 
-// Operate function
+// Click listener
 
-function operate(operator, a, b) {
-    return operator(a, b);
-}
+window.addEventListener('click', (e) => {
+    let dataType = e.target.dataset.type;
+    let value = e.target.innerHTML;
+
+    switch(dataType) {
+        case 'number':
+            entry.innerText += value;
+            break;
+
+        case 'operator':
+            prevEntry.innerText = entry.innerText;
+            operatorEntry.innerText = value;
+            entry.innerText = '';
+            break;
+
+        case 'equals':
+            answer.innerText = '=' + operate();
+            break;
+
+        case 'clear':
+            display.forEach(display => display.innerText = '');
+            break;
+
+        case 'delete':
+            entry.innerText = entry.innerText.slice(0,-1);
+            break;
+
+        case 'negate':
+           entry.innerText = Number(entry.innerText) * -1;
+            break;
+    }
+});
