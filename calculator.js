@@ -90,8 +90,16 @@ window.addEventListener('click', (e) => {
     }
 });
 
+// Keyboard listener
+// Button IDs set as keyboard event key
+
+document.addEventListener('keydown', (e) => {
+    document.getElementById(e.key).click();
+    });
+
+
 // TODO
 
 // return toFixed only if necessary
 // disable decimal if one already exists
-// keyboard support
+// Show keyboard feedback by activating button press on screen
