@@ -3,7 +3,8 @@ const entry = document.querySelector('#entry');
 const prevEntry = document.querySelector('#prev-entry');
 const operatorEntry = document.querySelector('#op-entry');
 
-// Operate function gathers a button's inner text value to determine the operation
+// Operate function gathers a button's inner text value
+// to determine which operation to perform
 
 function operate() {
     let a = Number(prevEntry.innerText);
@@ -31,6 +32,9 @@ function operate() {
         case '^':
             return a ** b;
 
+        case '√':
+            return b ** (1/a);
+
         case '!':
             let total = 1;
             for (let i = 0; i < a; i++) {
@@ -51,7 +55,7 @@ window.addEventListener('click', (e) => {
     let value = e.target.innerHTML;
 
     switch(dataSet) {
-        case 'number': // includes decimal point
+        case 'number': // Includes decimal point
             entry.innerText += value;
             break; 
 
