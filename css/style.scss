@@ -21,8 +21,11 @@ body {
     width: auto;
 
     #display-container {
+        display: inline-flex;
         background-color: white;
         text-align: right;
+        height: 50px;
+        justify-content: end;
         width: 100%;
     }
 
@@ -33,25 +36,33 @@ body {
         flex: 1;
         grid-template-rows: 50px repeat(5, $grid-dimension);
         grid-template-columns: repeat(4, $grid-dimension);
-        grid-gap: 10px 10px;
+        grid-gap: 4px 4px;
         width: 100%;
 
-        .clear-btns {
-            background-color: lightblue;
+        button {
+            border: none;
         }
 
-        #clear {
-            grid-column: 1/3;
+        .clear {
+            grid-column: 1 / 3;
             grid-row: 1;
         }
 
-        #del {
-            grid-column: 3/5;
+        .delete {
+            grid-column: 3 / 5;
             grid-row: 1;
+        }
+
+        .zero {
+            grid-column: 1 / 3;
         }
     
-        .small-btn {
-            background-color: lightgrey;
+        .num-btn {
+            background-color: lightgray;
+        }
+
+        .op-btn {
+            background-color: lightcoral;
         }
     }
 }
