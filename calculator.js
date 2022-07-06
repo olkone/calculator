@@ -2,6 +2,8 @@ const display = document.querySelectorAll('.display');
 const entry = document.querySelector('#entry');
 const prevEntry = document.querySelector('#prev-entry');
 const operatorEntry = document.querySelector('#op-entry');
+const output = document.querySelector('#output');
+const prevOp = document.querySelector('#prev-op');
 
 // Operate function gathers a button's inner text value
 // to determine which operation to perform
@@ -12,7 +14,6 @@ function operate() {
     const operator = operatorEntry.innerText;
 
     switch(operator) {
-
         case '+':
             return a + b;
         
@@ -67,7 +68,10 @@ window.addEventListener('click', (e) => {
             break;
 
         case 'equals':
+            prevOp.innerText = prevEntry.innerText + operatorEntry.innerText + entry.innerText + '=';
+
             entry.innerText = operate();
+
             operatorEntry.innerText = '';
             prevEntry.innerText = '';
             break;
