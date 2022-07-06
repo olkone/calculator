@@ -2,7 +2,8 @@ const display = document.querySelectorAll('.display');
 const entry = document.querySelector('#entry');
 const prevEntry = document.querySelector('#prev-entry');
 const operatorEntry = document.querySelector('#op-entry');
-const answer = document.querySelector('#answer');
+
+// Operate function gathers a button's inner text value to determine the operation
 
 function operate() {
     let a = Number(prevEntry.innerText);
@@ -21,7 +22,11 @@ function operate() {
             return a * b;
 
         case '÷':
-            return a / b;
+            if (b === 0) {
+                return "WHAT HAVE YOU DONE???";
+            } else {
+                return a / b;
+            }
         
         case '^':
             return a ** b;
@@ -32,32 +37,35 @@ function operate() {
                 total = total * (a - i);
             }
             return total;
-
+        
         default:
-            alert("Something went horribly wrong.");
-            break;
+            return b;
     }
 }
 
-// Click listener
+// Listen for all clicks
+// Switch case if clicked button contains certain data-type values
 
 window.addEventListener('click', (e) => {
-    let dataType = e.target.dataset.type;
+    let dataSet = e.target.dataset.type;
     let value = e.target.innerHTML;
 
-    switch(dataType) {
-        case 'number':
+    switch(dataSet) {
+        case 'number': // includes decimal point
             entry.innerText += value;
-            break;
+            break; 
 
         case 'operator':
+            entry.innerText = operate();
             prevEntry.innerText = entry.innerText;
             operatorEntry.innerText = value;
             entry.innerText = '';
             break;
 
         case 'equals':
-            answer.innerText = '=' + operate();
+            entry.innerText = operate();
+            operatorEntry.innerText = '';
+            prevEntry.innerText = '';
             break;
 
         case 'clear':
@@ -73,3 +81,9 @@ window.addEventListener('click', (e) => {
             break;
     }
 });
+
+// TODO
+
+// return toFixed only if necessary
+// disable decimal if one already exists
+// keyboard support
