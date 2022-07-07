@@ -103,7 +103,3 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('keyup', (e) => {
     document.getElementById(e.key).classList.remove('active');
 });
-
-// TODO:
-
-// Limit factorial input--crashes webpage if input is too large
