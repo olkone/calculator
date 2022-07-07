@@ -1,11 +1,5 @@
-@keyframes flash {
+@keyframes fade {
   0% {
-    color: white;
-  }
-  33% {
-    color: transparent;
-  }
-  67% {
     color: white;
   }
   100% {
@@ -22,8 +16,8 @@ body {
 }
 
 #blurb {
-  animation: flash 4s;
-  animation-delay: 4s;
+  animation: fade 2s;
+  animation-delay: 6s;
   animation-fill-mode: forwards;
   color: white;
   font-family: "Inconsolata", "Courier New", Courier, monospace;
