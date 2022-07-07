@@ -55,9 +55,17 @@ window.addEventListener('click', (e) => {
     let value = e.target.innerHTML;
 
     switch(dataSet) {
-        case 'number': // Includes decimal point
-            entry.innerText += value;
+        case 'number':
+            if (entry.innerText.length < 13) {
+                entry.innerText += value;
+            }
             break; 
+
+        case 'decimal':
+            if (!entry.innerText.includes('.')) {
+                entry.innerText += value;
+            }
+            break;
 
         case 'operator':
             entry.innerText = operate();
@@ -105,6 +113,4 @@ document.addEventListener('keyup', (e) => {
 // TODO
 
 // return toFixed only if necessary
-// disable decimal if one already exists
-// set max input length
 // store input data in an object
