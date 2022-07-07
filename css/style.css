@@ -64,4 +64,8 @@ body {
   background-color: lightcoral;
 }
 
+.active {
+  background-color: lightseagreen !important;
+}
+
 /*# sourceMappingURL=style.css.map */
