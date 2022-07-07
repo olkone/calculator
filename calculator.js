@@ -11,39 +11,43 @@ function operate() {
     let a = Number(prevEntry.innerText);
     let b = Number(entry.innerText);
     const operator = operatorEntry.innerText;
+    const accuracy = 8;
+
+    // Number().toFixed() limits output decimals only if there are decimals.
+    // It also slices off excess 0s at the ends of decimals
 
     switch(operator) {
         case '+':
-            return a + b;
+            return Number((a + b).toFixed(accuracy));
         
         case '-':
-            return a - b;
+            return Number((a - b).toFixed(accuracy));
 
         case '×':
-            return a * b;
+            return Number((a * b).toFixed(accuracy));
 
         case '÷':
             if (b === 0) {
                 return "WHAT HAVE YOU DONE???";
             } else {
-                return a / b;
+                return Number((a / b).toFixed(accuracy));
             }
         
         case '^':
-            return a ** b;
+            return Number((a ** b).toFixed(accuracy));
 
         case '√':
-            return b ** (1/a);
+            return Number((b ** (1/a)).toFixed(accuracy));
 
         case '!':
             let total = 1;
             for (let i = 0; i < a; i++) {
                 total = total * (a - i);
             }
-            return total;
+            return Number(total.toFixed(accuracy));
         
         default:
-            return b;
+            return Number(b.toFixed(accuracy));
     }
 }
 
@@ -56,7 +60,7 @@ window.addEventListener('click', (e) => {
 
     switch(dataSet) {
         case 'number':
-            if (entry.innerText.length < 13) {
+            if (entry.innerText.length < 16) {
                 entry.innerText += value;
             }
             break; 
@@ -112,5 +116,4 @@ document.addEventListener('keyup', (e) => {
 
 // TODO
 
-// return toFixed only if necessary
 // store input data in an object
