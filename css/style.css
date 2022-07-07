@@ -15,18 +15,23 @@ body {
   gap: 10px;
   padding: 10px;
   height: auto;
-  width: auto;
+  width: 300px;
 }
 #calc-container #display-container {
   align-items: center;
   display: grid;
   grid-template-columns: auto 18px;
-  grid-template-rows: repeat(2, 50%);
+  grid-template-rows: repeat(2, 50px);
   background-color: white;
-  font-size: 16px;
-  height: 100px;
-  text-align: end;
-  width: 100%;
+  font-size: 18px;
+  height: 90px;
+  padding: 4.5px 0 18px 18px;
+  text-align: right;
+  width: 282px;
+}
+#calc-container #display-container .display {
+  display: block;
+  word-break: break-word;
 }
 #calc-container #display-container #entry {
   grid-area: 2/1;
@@ -43,7 +48,7 @@ body {
 #calc-container #btn-container {
   display: grid;
   grid-template-rows: 50px repeat(5, 70px);
-  grid-template-columns: repeat(4, 70px);
+  grid-template-columns: repeat(4, auto);
   grid-gap: 4px 4px;
   width: 100%;
 }

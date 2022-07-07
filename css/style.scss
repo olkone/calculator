@@ -1,6 +1,7 @@
+$calc-width: 300px;
 $button-dimension: 70px;
 $grid-dimension: 70px;
-$gap: 5px;
+$gap: 4px;
 
 body {
     align-items: center;
@@ -19,19 +20,26 @@ body {
     gap: 10px;
     padding: 10px;
     height: auto;
-    width: auto;
+    width: $calc-width;
 
     #display-container {
         align-items: center;
         display: grid;
         grid-template-columns: auto 18px;
-        grid-template-rows: repeat(2, 50%);
+        grid-template-rows: repeat(2, 50px);
 
         background-color: white;
-        font-size: 16px;
-        height: 100px;
-        text-align: end;
-        width: 100%;
+        font-size: 18px;
+        height: 90px;
+        padding: 4.5px 0 18px 18px;
+        text-align:right;
+        width: 282px;
+
+        .display {
+            display: block;
+            word-break: break-word;
+
+        }
 
         #entry {
             grid-area: 2 / 1 ;
@@ -47,13 +55,14 @@ body {
         #prev-op {
             grid-area: 1 / 1 / 1 / 2;
         }
+            
     }
 
     #btn-container {
         display: grid;
         grid-template-rows: 50px repeat(5, $grid-dimension);
-        grid-template-columns: repeat(4, $grid-dimension);
-        grid-gap: 4px 4px;
+        grid-template-columns: repeat(4, auto);
+        grid-gap: $gap $gap;
         width: 100%;
 
         #c {
