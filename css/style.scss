@@ -1,4 +1,5 @@
 $button-dimension: 70px;
+$grid-dimension: 70px;
 $gap: 5px;
 
 body {
@@ -21,43 +22,57 @@ body {
     width: auto;
 
     #display-container {
-        display: inline-flex;
-        background-color: white;
-        text-align: right;
-        height: 50px;
-        justify-content: end;
-        width: 100%;
-    }
+        align-items: center;
+        display: grid;
+        grid-template-columns: auto 18px;
+        grid-template-rows: repeat(2, 50%);
 
-    $grid-dimension: 70px;
+        background-color: white;
+        font-size: 16px;
+        height: 100px;
+        text-align: end;
+        width: 100%;
+
+        #entry {
+            grid-area: 2 / 1 ;
+            font-size: 28px;
+        }
+
+        #op-entry {
+            text-align: left;
+            grid-area: 1 / 2;
+        }
+
+        #prev-entry,
+        #prev-op {
+            grid-area: 1 / 1 / 1 / 2;
+        }
+    }
 
     #btn-container {
         display: grid;
-        flex: 1;
         grid-template-rows: 50px repeat(5, $grid-dimension);
         grid-template-columns: repeat(4, $grid-dimension);
         grid-gap: 4px 4px;
         width: 100%;
 
-        button {
-            border: none;
-        }
-
-        .clear {
+        #c {
             grid-column: 1 / 3;
             grid-row: 1;
         }
 
-        .delete {
+        #Backspace {
             grid-column: 3 / 5;
             grid-row: 1;
         }
-    
-        .num-btn {
-            background-color: lightgray;
-        }
 
-        .op-btn {
+        button {
+            border: none;      
+        }
+    
+        .negate,
+        .equals,
+        .operator {
             background-color: lightcoral;
         }
     }
