@@ -11,43 +11,38 @@ function operate() {
     let a = Number(prevEntry.innerText);
     let b = Number(entry.innerText);
     const operator = operatorEntry.innerText;
-    const accuracy = 8;
-
-    // Number().toFixed() limits output decimals only if there are decimals.
-    // It also slices off excess 0s at the ends of decimals
 
     switch(operator) {
         case '+':
-            return Number((a + b).toFixed(accuracy));
+            return a + b;
         
         case '-':
-            return Number((a - b).toFixed(accuracy));
+            return a - b;
 
         case '×':
-            return Number((a * b).toFixed(accuracy));
+            return a * b;
 
         case '÷':
             if (b === 0) {
                 return "WHAT HAVE YOU DONE???";
             } else {
-                return Number((a / b).toFixed(accuracy));
+                return a / b;
             }
         
         case '^':
-            return Number((a ** b).toFixed(accuracy));
-
+            return a ** b;
         case '√':
-            return Number((b ** (1/a)).toFixed(accuracy));
+            return b ** (1/a);
 
         case '!':
             let total = 1;
             for (let i = 0; i < a; i++) {
                 total = total * (a - i);
             }
-            return Number(total.toFixed(accuracy));
+            return total;
         
         default:
-            return Number(b.toFixed(accuracy));
+            return b;
     }
 }
 
