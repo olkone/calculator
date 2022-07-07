@@ -2,7 +2,6 @@ const display = document.querySelectorAll('.display');
 const entry = document.querySelector('#entry');
 const prevEntry = document.querySelector('#prev-entry');
 const operatorEntry = document.querySelector('#op-entry');
-const output = document.querySelector('#output');
 const prevOp = document.querySelector('#prev-op');
 
 // Operate function gathers a button's inner text value
@@ -65,6 +64,7 @@ window.addEventListener('click', (e) => {
             prevEntry.innerText = entry.innerText;
             operatorEntry.innerText = value;
             entry.innerText = '';
+            prevOp.innerText = '';
             break;
 
         case 'equals':
@@ -90,16 +90,21 @@ window.addEventListener('click', (e) => {
     }
 });
 
-// Keyboard listener
+// Keyboard listeners
 // Button IDs set as keyboard event key
 
 document.addEventListener('keydown', (e) => {
     document.getElementById(e.key).click();
+    document.getElementById(e.key).classList.add('active');
     });
 
+document.addEventListener('keyup', (e) => {
+    document.getElementById(e.key).classList.remove('active');
+});
 
 // TODO
 
 // return toFixed only if necessary
 // disable decimal if one already exists
-// Show keyboard feedback by activating button press on screen
+// set max input length
+// store input data in an object
