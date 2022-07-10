@@ -4,6 +4,92 @@ const prevEntry = document.querySelector('#prev-entry');
 const opEntry = document.querySelector('#op-entry');
 const prevOp = document.querySelector('#prev-op');
 
+function add(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    if (b === 0) {
+        return "ERROR";
+    } else {
+        return a / b;
+    }
+}
+
+function exponent(a, b) {
+    return a ** b;
+}
+
+function root(a, b) {
+    return b ** (1/a);
+}
+
+function factorial(a) {
+    let total = 1;
+    if (a > 170) {
+        return "Infinity";
+    } else {
+        for (let i = 0; i < a; i++) {
+            total = total * (a - i);
+            }
+    }
+    return total;
+}
+
+function inputNum(value) {
+    if (entry.innerText.length < 16) {
+        entry.innerText += value;
+    }
+}
+
+function inputDec(value) {
+    if (!entry.innerText.includes('.')) {
+        entry.innerText += value;
+    }
+}
+
+function inputOp(value) {
+    entry.innerText = operate();
+    prevEntry.innerText = entry.innerText;
+    opEntry.innerText = value;
+    entry.innerText = '';
+    prevOp.innerText = '';
+}
+
+function inputEq() {
+    prevOp.innerText = `${prevEntry.innerText} ${opEntry.innerText} ${entry.innerText} = `;
+    entry.innerText = operate();
+    opEntry.innerText = '';
+    prevEntry.innerText = '';
+}
+
+function clear() {
+    display.forEach(display => display.innerText = '');
+}
+
+function del() {
+    entry.innerText = entry.innerText.slice(0,-1);
+}
+
+function negate() {
+    entry.innerText = Number(entry.innerText) * -1;
+}
+
+function resetEntry() {
+    if (shouldResetEntry) {
+        entry.innerText = '';
+        shouldResetEntry = false;
+    }
+}
+
 // Switch on operation buttons' innerText values
 function operate() {
     let a = Number(prevEntry.innerText);
@@ -11,41 +97,32 @@ function operate() {
 
     switch(opEntry.innerText) {
         case '+':
-            return a + b;
+            return add(a, b);
         
         case '-':
-            return a - b;
+            return subtract(a, b);
 
         case '×':
-            return a * b;
+            return multiply(a, b);
 
         case '÷':
-            if (b === 0) {
-                return "ERROR";
-            } else {
-                return a / b;
-            }
+            return divide(a, b);
         
         case '^':
-            return a ** b;
+            return exponent(a, b);
+            
         case '√':
-            return b ** (1/a);
+            return root(a, b);
 
         case '!':
-            if (a > 170) {
-                return "Infinity";
-            } else {
-                let total = 1;
-                for (let i = 0; i < a; i++) {
-                total = total * (a - i);
-            }
-                return total;
-            }
+            return factorial(a);
     
         default:
             return b;
     }
 }
+
+let shouldResetEntry = false;
 
 // Listen for all clicks; switch on HTML data-type values
 window.addEventListener('click', (e) => {
@@ -54,42 +131,34 @@ window.addEventListener('click', (e) => {
 
     switch(dataSet) {
         case 'number':
-            if (entry.innerText.length < 16) {
-                entry.innerText += value;
-            }
+            resetEntry();
+            inputNum(value);
             break; 
 
         case 'decimal':
-            if (!entry.innerText.includes('.')) {
-                entry.innerText += value;
-            }
+            resetEntry();
+            inputDec(value);
             break;
 
         case 'operator':
-            entry.innerText = operate();
-            prevEntry.innerText = entry.innerText;
-            opEntry.innerText = value;
-            entry.innerText = '';
-            prevOp.innerText = '';
+            inputOp(value);
             break;
 
         case 'equals':
-            prevOp.innerText = `${prevEntry.innerText} ${opEntry.innerText} ${entry.innerText} = `;
-            entry.innerText = operate();
-            opEntry.innerText = '';
-            prevEntry.innerText = '';
+            inputEq();
+            shouldResetEntry = true;
             break;
 
         case 'clear':
-            display.forEach(display => display.innerText = '');
+            clear();
             break;
 
         case 'delete':
-            entry.innerText = entry.innerText.slice(0,-1);
+            del();
             break;
 
         case 'negate':
-            entry.innerText = Number(entry.innerText) * -1;
+            negate();
             break;
     }
 });
