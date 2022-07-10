@@ -41,6 +41,12 @@ This web-browser calculator was created with vanilla JavaScript, HTML, and Sass/
 This project was the first big project where I had to make decisions between incompatible functionality and aesthetics.<br><br>
 For example, I had to decide between arithmetic accuracy and overflowing the display with decimals. It would've looked nicer if the display only showed the first five decimals. However, because of the way my program stores its entries, that would reduce the decimal's accuracy and produce incorrect outputs.<br><br>
 I ended up choosing to limit the input entry length to 15 digits, which kept a fair amount of arithmetic accuracy, but didn't overwhelm the display too much.
+<br><br>
+7/10/22: <br>
+After reviewing my code a few days after publishing my working calculator, I noticed that I only had one defined function that was doing ALL of the arithmetic heavy-lifting and a switch statement handling ALL of the DOM manipulation. I brushed up on my coding principles and applied single-responsibility functions and separation of concerns.
+<br><br>
+After reworking my code, it became more organized and easier to read. Because my code was cleaner, I was able to identify where a bug in my code was and fix it. This bug wouldn't clear the entry after completing an operation, instead the user's input would append the result of the previous operation.
+<br>
 
 ## Development Tools
 * VS Code
