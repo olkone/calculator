@@ -57,14 +57,20 @@ After reworking my code, it became more organized and easier to read. Because my
 * Mac Terminal
 
 ## Check out some of my other projects!
-* Sketch!
-   * [Live Page](https://olkone.github.io/sketch/)
-   * [Repository](https://github.com/olkone/sketch)
+* Admin Dashboard
+    * [Live Page](https://olkone.github.io/admin-dashboard/)
+    * [Repository](https://github.com/olkone/admin-dashboard)
 * Python Typing Game
     * [Repository](https://github.com/olkone/typing-game)
 * Rock, Paper, Scissors
     * [Live Page](https://olkone.github.io/rock-paper-scissors/)
     * [Repository](https://github.com/olkone/rock-paper-scissors/)
+* Sign-Up Form
+    * [Live Page](https://olkone.github.io/sign-up-form/)
+    * [Repository](https://github.com/olkone/sign-up-form)
+* Sketch!
+   * [Live Page](https://olkone.github.io/sketch/)
+   * [Repository](https://github.com/olkone/sketch)
 * Writing Portfolio Webpage
     * [Live Page](https://olkone.github.io/writing-portfolio/)
     * [Repository](https://github.com/olkone/writing-portfolio)
