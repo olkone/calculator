@@ -60,6 +60,9 @@ After reworking my code, it became more organized and easier to read. Because my
 * Admin Dashboard
     * [Live Page](https://olkone.github.io/admin-dashboard/)
     * [Repository](https://github.com/olkone/admin-dashboard)
+* Library
+    * [Live Page](https://olkone.github.io/library/)
+    * [Repository](https://github.com/olkone/library)
 * Python Typing Game
     * [Repository](https://github.com/olkone/typing-game)
 * Rock, Paper, Scissors
